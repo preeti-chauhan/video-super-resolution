@@ -55,6 +55,14 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 - **Classical baselines first** — establishes an interpolation ceiling before training the CNN, making the improvement quantifiable
 - **YCbCr color space** — SRCNN is trained and applied on the Y (luminance) channel only; Cb/Cr (color) channels are bicubic upsampled and merged back, producing full color output while keeping the model simple
 
+## Video Outputs
+
+![Preview](download.png)
+
+*HR (ground truth) · Nearest · Bicubic · Lanczos · SRCNN — with PSNR scores*
+
+> Full videos (play in browser): [`synthetic_lr.mp4`](https://github.com/preeti-chauhan/video-super-resolution/blob/main/synthetic_lr.mp4) · [`sr_output.mp4`](https://github.com/preeti-chauhan/video-super-resolution/blob/main/sr_output.mp4)
+
 ## Requirements
 
 ```
@@ -85,6 +93,7 @@ Replace `clip.mp4` with your own video in the Colab session before running Secti
 | `synthetic_lr.mp4` | Low-resolution input video |
 | `sr_output.mp4` | SRCNN super resolved output video |
 | `README.md` | This file |
+| `References/1501.00092v3.pdf` | SRCNN paper (Dong et al., 2014) |
 
 ## References
 
