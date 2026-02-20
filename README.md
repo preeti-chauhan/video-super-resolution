@@ -28,7 +28,7 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 
 ## Training Details
 
-- **Data** — 180 frames extracted from `clip.mp4` (mountain landscape, 80/10/10 train/val/test split)
+- **Data** — 180 frames extracted from `clip.mp4` (forest nature, 80/10/10 train/val/test split)
 - **Optimizer** — Adam with layer-wise LR (conv1/conv2: 1e-4, conv3: 1e-5)
 - **Epochs** — 30 · **Batch size** — 64 · **Patch size** — 33×33 · **Stride** — 14
 - **Scale factor** — ×3 · **Loss** — MSE on HR patches
@@ -78,7 +78,7 @@ Replace `clip.mp4` with your own video in the Colab session before running Secti
 | File | Description |
 |---|---|
 | `video_super_resolution.ipynb` | Main notebook |
-| `clip.mp4` | Source video used for training (mountain landscape, 6s) |
+| `clip.mp4` | Source video used for training (forest nature, 6s) |
 | `srcnn_best.pth` | Best model weights by val PSNR (generated after training) |
 | `srcnn_weights.pth` | Final model weights (generated after training) |
 | `synthetic_lr.mp4` | Low-resolution input video |
