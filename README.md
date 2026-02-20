@@ -46,6 +46,8 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 
 *Results for ×3 upscaling. Vary by scale factor and training epochs.*
 
+> **TODO:** Current output can appear soft/blurry due to limited training. To improve sharpness: set `NUM_EPOCHS = 100` and `SCALE_FACTOR = 2` in the notebook params cell, then retrain.
+
 ## Design Decisions
 
 - **Patch-based training** — extracts overlapping 33×33 patches with stride 14 for more training samples and fixed input size; mirrors the original SRCNN paper
