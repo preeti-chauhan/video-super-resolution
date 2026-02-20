@@ -91,4 +91,4 @@ Replace `clip.mp4` with your own video in the Colab session before running Secti
 
 ## Acknowledgements
 
-Sample video: Mountain landscape nature clip, used for research and educational purposes.
+Sample video: *FOREST 4K — American Nature Relaxation Film* by [Nature Relaxation Films](https://www.youtube.com/watch?v=VNu15Qqomt8), used for research and educational purposes.
