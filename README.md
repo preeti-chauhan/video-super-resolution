@@ -1,6 +1,7 @@
 # Video Super Resolution
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/preeti-chauhan/video-super-resolution/blob/main/video_super_resolution.ipynb)
+[![View Notebook](https://img.shields.io/badge/Jupyter-View%20Notebook-orange?logo=jupyter)](https://github.com/preeti-chauhan/video-super-resolution/blob/main/video_super_resolution.ipynb)
 
 Classical upsampling vs. SRCNN deep learning for frame-by-frame video super resolution.
 
@@ -25,6 +26,14 @@ LR (bicubic upsampled)
 
 Only **~20K parameters** — lightweight and fast to train and deploy.
 
+## Training Details
+
+- **Data** — 144 frames extracted from `clip.mp4` (Sintel, 80/10/10 train/val/test split)
+- **Optimizer** — Adam with layer-wise LR (conv1/conv2: 1e-4, conv3: 1e-5)
+- **Epochs** — 30 · **Batch size** — 64 · **Patch size** — 33×33 · **Stride** — 14
+- **Scale factor** — ×3 · **Loss** — MSE on HR patches
+- **Device** — GPU (Colab T4)
+
 ## Results
 
 | Method      | PSNR (dB) ↑ | SSIM ↑ |
@@ -36,6 +45,14 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 | **SRCNN**   | **~29+**    | **~0.85+** |
 
 *Results for ×3 upscaling. Vary by scale factor and training epochs.*
+
+## Design Decisions
+
+- **Patch-based training** — extracts overlapping 33×33 patches with stride 14 for more training samples and fixed input size; mirrors the original SRCNN paper
+- **Bicubic pre-upsampling** — LR frames are bicubic-upsampled to HR size before SRCNN input, so the network learns residual refinement rather than full reconstruction
+- **Layer-wise learning rates** — final reconstruction layer uses 10× lower LR than earlier layers, following the SRCNN paper to preserve low-level structure
+- **PSNR + SSIM** — PSNR measures pixel-level fidelity; SSIM captures perceptual sharpness — both needed to evaluate super resolution quality
+- **Classical baselines first** — establishes an interpolation ceiling before training the CNN, making the improvement quantifiable
 
 ## Requirements
 
@@ -54,21 +71,24 @@ Enable GPU: `Runtime → Change runtime type → T4 GPU`
 
 ## Using Your Own Video
 
-In Section 6, uncomment Option B:
-```python
-SYNTHETIC_VIDEO = 'your_video.mp4'
-```
+Replace `clip.mp4` with your own video in the Colab session before running Section 6.
 
 ## Files
 
 | File | Description |
 |---|---|
 | `video_super_resolution.ipynb` | Main notebook |
-| `srcnn_best.pth` | Best model weights (generated after training) |
+| `clip.mp4` | Source video used for training (Sintel, 6s) |
+| `srcnn_best.pth` | Best model weights by val PSNR (generated after training) |
 | `srcnn_weights.pth` | Final model weights (generated after training) |
-| `sr_output.avi` | Super resolved video output (generated after running) |
+| `synthetic_lr.mp4` | Low-resolution input video |
+| `sr_output.mp4` | SRCNN super resolved output video |
 | `README.md` | This file |
 
 ## References
 
 - Dong, C. et al. (2014). *Learning a Deep Convolutional Network for Image Super-Resolution.* ECCV 2014. [arXiv:1501.00092](https://arxiv.org/abs/1501.00092)
+
+## Acknowledgements
+
+Sample video: [Sintel](https://durian.blender.org/) © Blender Foundation, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
