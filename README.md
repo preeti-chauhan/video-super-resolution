@@ -5,6 +5,10 @@
 
 Classical upsampling vs. SRCNN deep learning for frame-by-frame video super resolution.
 
+## Motivation
+
+Video footage is often captured or stored at low resolution, and naive upsampling (bicubic, Lanczos) produces blurry, detail-lacking results. SRCNN learns a patch-level mapping from low- to high-resolution via a lightweight 3-layer CNN, recovering fine detail that classical interpolation cannot reconstruct.
+
 ## Overview
 
 Builds a complete video super resolution pipeline covering:
