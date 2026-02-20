@@ -50,6 +50,8 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 
 *Results for ×3 upscaling. Vary by scale factor and training epochs.*
 
+SRCNN achieves a ~2 dB PSNR gain over the best classical interpolation (Lanczos), with a ~0.04 SSIM improvement. Even with only ~20K parameters, the network recovers fine detail that interpolation-based methods fundamentally cannot — because interpolation has no learned model of what high-frequency detail should look like.
+
 > **TODO:** Current output can appear soft/blurry due to limited training. To improve sharpness: set `NUM_EPOCHS = 100` and `SCALE_FACTOR = 2` in the notebook params cell, then retrain.
 
 ## Design Decisions
