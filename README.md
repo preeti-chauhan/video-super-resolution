@@ -67,7 +67,7 @@ SRCNN achieves a ~2 dB PSNR gain over the best classical interpolation (Lanczos)
 
 ![Preview](download.png)
 
-*HR (ground truth) · Nearest · Bicubic · Lanczos · SRCNN — with PSNR scores*
+*HR (ground truth) · Nearest · Bicubic · Lanczos · SRCNN — color frames, PSNR measured on Y channel*
 
 > Full videos (play in browser): [`synthetic_lr.mp4`](https://github.com/preeti-chauhan/video-super-resolution/blob/main/synthetic_lr.mp4) · [`sr_output.mp4`](https://github.com/preeti-chauhan/video-super-resolution/blob/main/sr_output.mp4)
 
