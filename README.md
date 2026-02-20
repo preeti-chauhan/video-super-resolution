@@ -13,7 +13,7 @@ Video footage is often captured or stored at low resolution, and naive upsamplin
 
 Builds a complete video super resolution pipeline covering:
 - **Data pipeline** — LR/HR pair generation, patch extraction, train/val/test splits
-- **Classical baselines** — nearest neighbour, bilinear, bicubic, Lanczos
+- **Classical baselines** — nearest neighbour, bicubic, Lanczos
 - **SRCNN** — Super Resolution CNN implemented in PyTorch (Dong et al., 2014)
 - **Quantitative evaluation** — PSNR & SSIM comparison across all methods
 - **Video processing** — frame-by-frame SR inference, HR video reconstruction
@@ -43,7 +43,6 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 | Method      | PSNR (dB) ↑ | SSIM ↑ |
 |-------------|-------------|--------|
 | Nearest     | ~24         | ~0.70  |
-| Bilinear    | ~26         | ~0.78  |
 | Bicubic     | ~27         | ~0.80  |
 | Lanczos     | ~27         | ~0.81  |
 | **SRCNN**   | **~29+**    | **~0.85+** |
