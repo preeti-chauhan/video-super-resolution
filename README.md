@@ -53,6 +53,7 @@ Only **~20K parameters** — lightweight and fast to train and deploy.
 - **Layer-wise learning rates** — final reconstruction layer uses 10× lower LR than earlier layers, following the SRCNN paper to preserve low-level structure
 - **PSNR + SSIM** — PSNR measures pixel-level fidelity; SSIM captures perceptual sharpness — both needed to evaluate super resolution quality
 - **Classical baselines first** — establishes an interpolation ceiling before training the CNN, making the improvement quantifiable
+- **YCbCr color space** — SRCNN is trained and applied on the Y (luminance) channel only; Cb/Cr (color) channels are bicubic upsampled and merged back, producing full color output while keeping the model simple
 
 ## Requirements
 
